@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h1>Instagram</h1>
+    <button data-page="Home">⌂ <span>Home</span></button>
+    <button data-page="Search">⌕ <span>Search</span></button>
+    <button data-page="Explore">◇ <span>Explore</span></button>
+    <button data-page="Reels">▷ <span>Reels</span></button>
+    <button data-page="Messages">➤ <span>Messages</span></button>
+    <button data-page="Notifications">♡ <span>Notifications</span></button>
+    <button id="openCreate">⊞ <span>Create</span></button>
+    <button data-page="Profile">♙ <span>Profile</span></button>
+  </aside>
+
+  <main>
+    <header>
+      <input id="search" placeholder="Search users or captions...">
+      <button id="headerCreate">＋ Create</button>
+    </header>
+
+    <section class="stories" id="stories"></section>
+
+    <section class="create">
+      <img class="avatar" src="https://i.pravatar.cc/100?img=47" alt="">
+      <button id="createPrompt">Share a photo or a moment...</button>
+    </section>
+
+    <section id="feed"></section>
+  </main>
+
+  <aside class="rightbar">
+    <div class="my-profile">
+      <img class="avatar" src="https://i.pravatar.cc/100?img=47" alt="">
+      <div><b>your_username</b><p>Your profile</p></div>
+    </div>
+    <h3>Suggested for you <a href="#" id="seeAll">See All</a></h3>
+    <div id="suggestions"></div>
+  </aside>
+
+  <dialog id="createDialog">
+    <form id="postForm">
+      <h2>Create new post</h2>
+      <label for="photo">Choose photo</label>
+      <input id="photo" type="file" accept="image/*">
+      <img id="preview" alt="Photo preview">
+      <textarea id="caption" placeholder="Write a caption..."></textarea>
+      <button type="submit">Share</button>
+      <button type="button" id="cancelCreate">Cancel</button>
+    </form>
+  </dialog>
+
+  <dialog id="commentDialog">
+    <form id="commentForm">
+      <h2>Comments</h2>
+      <div id="comments"></div>
+      <input id="commentText" placeholder="Add a comment..." required>
+      <button type="submit">Post</button>
+      <button type="button" id="cancelComments">Close</button>
+    </form>
+  </dialog>
+
+  <input id="storyPhoto" type="file" accept="image/*" hidden>
+
+  <script src="script.js"></script>
+</body>
+</html>

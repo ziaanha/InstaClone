@@ -1,0 +1,419 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fafafa;
+  color: #262626;
+  font-family: Arial, sans-serif;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 245px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 25px 15px;
+  border-right: 1px solid #ddd;
+  background: white;
+}
+
+.sidebar h1 {
+  font-family: cursive;
+  font-size: 30px;
+  margin: 10px 10px 35px;
+}
+
+.sidebar button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 15px 12px;
+  margin: 5px 0;
+  border: 0;
+  border-radius: 8px;
+  background: white;
+  text-align: left;
+  font-size: 17px;
+}
+
+.sidebar button:hover {
+  background: #f3f3f3;
+}
+
+main {
+  width: min(620px, calc(100% - 580px));
+  margin-left: calc(245px + (100% - 245px - 335px - min(620px, 100% - 580px)) / 2);
+  padding: 20px 0 50px;
+}
+
+header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+header input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  background: #efefef;
+  border: 0;
+  border-radius: 8px;
+}
+
+header button,
+#createDialog button,
+#commentDialog button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 8px;
+  background: #0095f6;
+  color: white;
+  font-weight: bold;
+}
+
+.stories {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 16px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.story {
+  min-width: 65px;
+  border: 0;
+  background: transparent;
+  text-align: center;
+  font-size: 12px;
+}
+
+.story img {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  padding: 3px;
+  border: 2px solid #e1306c;
+  object-fit: cover;
+}
+
+.story span {
+  display: block;
+  margin-top: 5px;
+  max-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.create {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#createPrompt {
+  flex: 1;
+  text-align: left;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  border-radius: 25px;
+  padding: 12px 15px;
+  color: #777;
+}
+
+.post {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+}
+
+.post-header .user {
+  flex: 1;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.post-header small {
+  display: block;
+  margin-top: 4px;
+  color: #888;
+  font-weight: normal;
+}
+
+.post-image {
+  display: block;
+  width: 100%;
+  max-height: 650px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #eee;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 12px 5px;
+}
+
+.post-actions button {
+  border: 0;
+  background: transparent;
+  font-size: 25px;
+  padding: 0;
+}
+
+.post-actions .save {
+  margin-left: auto;
+}
+
+.liked {
+  color: #ed4956 !important;
+}
+
+.post-caption,
+.post-comments {
+  padding: 5px 12px 12px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.post-caption b {
+  margin-right: 5px;
+}
+
+.post-comments {
+  border: 0;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  text-align: left;
+}
+
+.rightbar {
+  width: 300px;
+  position: fixed;
+  top: 35px;
+  right: max(25px, calc((100vw - 1400px) / 2));
+}
+
+.my-profile,
+.suggestion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.my-profile p,
+.suggestion p {
+  margin: 5px 0;
+  color: #888;
+  font-size: 12px;
+}
+
+.rightbar h3 {
+  font-size: 14px;
+  color: #888;
+}
+
+.rightbar h3 a {
+  float: right;
+  color: #262626;
+  text-decoration: none;
+}
+
+.suggestion img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.suggestion div {
+  flex: 1;
+  min-width: 0;
+}
+
+.suggestion button {
+  border: 0;
+  background: transparent;
+  color: #0095f6;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.suggestion button.following {
+  color: #888;
+}
+
+dialog {
+  width: min(430px, calc(100% - 25px));
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+dialog::backdrop {
+  background: #0008;
+}
+
+dialog form {
+  display: grid;
+  gap: 14px;
+}
+
+dialog h2 {
+  font-size: 20px;
+}
+
+dialog textarea,
+dialog input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+dialog textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+#preview {
+  display: none;
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+#comments {
+  max-height: 250px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.comment {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  overflow-wrap: anywhere;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+  padding: 30px;
+}
+
+@media (max-width: 1100px) {
+  .rightbar {
+    display: none;
+  }
+
+  main {
+    width: min(620px, calc(100% - 280px));
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(100px);
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 65px;
+    padding: 15px 7px;
+  }
+
+  .sidebar h1 {
+    font-size: 0;
+    margin: 12px 0 30px;
+  }
+
+  .sidebar h1::after {
+    content: "◎";
+    font-size: 30px;
+  }
+
+  .sidebar button {
+    justify-content: center;
+    padding: 13px 5px;
+    font-size: 22px;
+  }
+
+  .sidebar button span {
+    display: none;
+  }
+
+  main {
+    width: calc(100% - 85px);
+    margin-left: 75px;
+    padding-top: 12px;
+    transform: none;
+  }
+
+  header input {
+    width: 100px;
+  }
+
+  header button {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .stories {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .story img {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 420px) {
+  .sidebar {
+    display: none;
+  }
+
+  main {
+    width: 100%;
+    margin: 0;
+    padding: 10px 8px;
+  }
+}
